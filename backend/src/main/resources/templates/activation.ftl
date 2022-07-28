@@ -187,8 +187,10 @@
 												style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
 												<div
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:22px;line-height:1;text-align:left;color:#ffffff;">
-													<span style="color:#FEEB35">Dear
-														${msg.first} ${msg.last}</span><br /><br />
+													<span style="color:#FEEB35">
+													${org.name} ${org.url}
+													Dear
+                                                        ${(msg.first)!"{msg.first}"} ${(msg.last)!"{msg.last}"}
 													Welcome to Freshworks
 												</div>
 											</td>
@@ -213,7 +215,7 @@
 													your account
 													with your
 													username
-													${msg.username}
+                                                    ${(msg.username)!"{msg.username}"}
 												</div>
 											</td>
 										</tr>
