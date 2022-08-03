@@ -50,7 +50,7 @@ public class EmailSenderService {
         StringWriter stringWriter = new StringWriter();
         Map<String, Object> model = new HashMap<>();
         model.put("msg", msg);
-        configuration.getTemplate("index.ftl").process(model, stringWriter);
+        configuration.getTemplate(msg.getCompany()+".ftl").process(model, stringWriter);
         return stringWriter.getBuffer().toString();
     }
 }

@@ -5,6 +5,16 @@ public class EmailMessage {
     private String subject;
     private String message;
     private String first;
+    private String company;
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
     private String last;
     private String username;
 
