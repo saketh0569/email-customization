@@ -188,7 +188,7 @@
 												<div
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:22px;line-height:1;text-align:left;color:#ffffff;">
 													<span style="color:#FEEB35">
-													Freshworks thisisurlformicrosoft
+													fresh thisisurlformicrosoft
 													Dear
                                                         ${msg.first} ${msg.last}
 													Welcome to Freshworks

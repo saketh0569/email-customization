@@ -29,7 +29,7 @@ public class FileService {
         return fileID.toString();
     }
 
-    public FileDoc downloadFile(String id) throws IOException {
+    public FileDoc downloadFileFromID(String id) throws IOException {
         GridFSFile gridFSFile = template.findOne(new Query(Criteria.where("_id").is(id)));
         FileDoc filet = new FileDoc();
         if (gridFSFile != null && gridFSFile.getMetadata() != null) {
@@ -38,6 +38,19 @@ public class FileService {
 //            filet.setFilesize( gridFSFile.getMetadata().get("fileSize").toString() );
             filet.setFile(IOUtils.toByteArray(operations.getResource(gridFSFile).getInputStream()));
         }
+        return filet;
+    }
+
+    public FileDoc downloadFileFromName(String str) throws IOException {
+        GridFSFile gridFSFile = template.findOne(new Query(Criteria.where("filename").is(str)));
+        FileDoc filet = new FileDoc();
+        if (gridFSFile != null && gridFSFile.getMetadata() != null) {
+            filet.setFilename( gridFSFile.getFilename() );
+            filet.setFiletype( gridFSFile.getMetadata().get("_contentType").toString() );
+//            filet.setFilesize( gridFSFile.getMetadata().get("fileSize").toString() );
+            filet.setFile(IOUtils.toByteArray(operations.getResource(gridFSFile).getInputStream()));
+        }
+//        System.out.println(filet.getFilename());
         return filet;
     }
 }

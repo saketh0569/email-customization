@@ -6,15 +6,6 @@ public class EmailMessage {
     private String message;
     private String first;
     private String company;
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
     private String last;
     private String username;
 
@@ -25,6 +16,13 @@ public class EmailMessage {
         this.to = to;
         this.subject = subject;
         this.message = message;
+    }
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public String getTo() {

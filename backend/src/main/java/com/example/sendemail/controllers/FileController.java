@@ -27,11 +27,22 @@ public class FileController {
 
     @GetMapping("/download")
     public ResponseEntity<ByteArrayResource> download(@RequestParam("id") String id) throws IOException {
-        FileDoc loadFile = fileService.downloadFile(id);
+        FileDoc loadFile = fileService.downloadFileFromID(id);
 
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(loadFile.getFiletype()))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + loadFile.getFilename() + "\"")
                 .body(new ByteArrayResource(loadFile.getFile()));
     }
+
+    @GetMapping("/download2")
+    public ResponseEntity<ByteArrayResource> downloadFromFileName(@RequestParam("str") String str) throws IOException {
+        FileDoc loadFile = fileService.downloadFileFromName(str);
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(loadFile.getFiletype()))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + loadFile.getFilename() + "\"")
+                .body(new ByteArrayResource(loadFile.getFile()));
+    }
+
 }

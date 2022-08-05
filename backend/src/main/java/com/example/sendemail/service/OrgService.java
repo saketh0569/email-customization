@@ -46,11 +46,11 @@ public class OrgService {
             res = res+str.charAt(i);
         }
 
-        File dest = new File("src/main/resources/templates/"+org.getName()+".ftl");
-        FileWriter wr = new FileWriter(dest);
-        wr.write(res);
-        wr.flush();
-        wr.close();
+//        File dest = new File("src/main/resources/templates/"+org.getName()+".ftl");
+//        FileWriter wr = new FileWriter(dest);
+//        wr.write(res);
+//        wr.flush();
+//        wr.close();
 
         MultipartFile multi = new MockMultipartFile("file", org.getName(), "text/plain", IOUtils.toByteArray(res));
         return fileService.addFile(multi);

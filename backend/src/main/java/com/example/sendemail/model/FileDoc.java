@@ -28,7 +28,7 @@ public class FileDoc {
 //    public String getFilesize() {
 //        return filesize;
 //    }
-//
+
 //    public void setFilesize(String filesize) {
 //        this.filesize = filesize;
 //    }
