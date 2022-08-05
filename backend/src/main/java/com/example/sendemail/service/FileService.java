@@ -53,4 +53,9 @@ public class FileService {
 //        System.out.println(filet.getFilename());
         return filet;
     }
+
+    public String updateFileFromID(MultipartFile upload) throws IOException {
+        template.delete(new Query(Criteria.where("filename").is(upload.getOriginalFilename())));
+        return this.addFile(upload);
+    }
 }

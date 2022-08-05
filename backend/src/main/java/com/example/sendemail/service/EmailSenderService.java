@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class EmailSenderService {
@@ -79,8 +80,16 @@ public class EmailSenderService {
         wr.flush();
         wr.close();
 
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         configuration.getTemplate("temp.ftl").process(model, stringWriter);
 //        dest.delete();
-        return stringWriter.getBuffer().toString();
+        System.out.println("here");
+        String ans = stringWriter.getBuffer().toString();
+//        dest.delete();
+        return ans;
     }
 }

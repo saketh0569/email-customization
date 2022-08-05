@@ -45,4 +45,11 @@ public class FileController {
                 .body(new ByteArrayResource(loadFile.getFile()));
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<?> updateFromFileID(@RequestParam("file") MultipartFile file) throws IOException {
+        System.out.println("here 1");
+//        FileDoc loadFile = fileService.updateFileFromID(id);
+//        String id = "62e8097bef38bc5c4f1ebce7";
+        return new ResponseEntity<>(fileService.updateFileFromID(file), HttpStatus.OK);
+    }
 }

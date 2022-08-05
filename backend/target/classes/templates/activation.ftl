@@ -118,7 +118,7 @@
 														<tr>
 															<td style="width:600px;">
 																<img alt="" height="auto"
-																	src="http://go.mailjet.com/tplimg/mtrq/b/ox8s/mg1rw.png"
+																	src="${org.url}"
 																	style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
 																	width="600" />
 															</td>
@@ -188,10 +188,9 @@
 												<div
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:22px;line-height:1;text-align:left;color:#ffffff;">
 													<span style="color:#FEEB35">
-													${org.name} ${org.url}
 													Dear
                                                         ${(msg.first)!"{msg.first}"} ${(msg.last)!"{msg.last}"}
-													Welcome to Freshworks
+													Welcome to ${org.name}
 												</div>
 											</td>
 										</tr>
@@ -210,12 +209,12 @@
 													feel free to
 													reach out to us
 													at
-													freshworks@gmail.com
+													company@gmail.com
 													You can login to
 													your account
 													with your
 													username
-                                                    ${(msg.username)!"{msg.username}"}
+                                                    ${(msg.username)!"{msg.username}"}. And can use the below link to activate your account.
 												</div>
 											</td>
 										</tr>
@@ -246,7 +245,7 @@
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#ffffff;">
 													Thanks, <br />
 													The
-													Freshworks
+													${org.name}
 													Team</div>
 											</td>
 										</tr>

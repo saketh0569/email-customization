@@ -33,4 +33,9 @@ public class ApplicationController {
     public String addOrgTemplate(@RequestBody Org org) throws TemplateException, IOException {
         return orgService.addTemplate(org);
     }
+
+    @RequestMapping(value = "/org/update", method = RequestMethod.PUT)
+    public String updateTemplate(@RequestBody Org org) throws TemplateException, IOException {
+        return orgService.updateTemplate(org);
+    }
 }
