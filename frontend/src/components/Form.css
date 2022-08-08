@@ -1,0 +1,66 @@
+
+.back{
+
+    padding: 2rem;
+    height:100%; 
+    
+}
+.cont{
+    justify-content: center;
+}
+.left{
+    text-align: left;
+}
+
+.yellow{
+    font-family:  sans-serif;
+    color: #00CC99;
+}
+.hed{
+    text-align: center;
+
+    color: deeppink;
+}
+.bckimg{
+    background-image: url("https://images.unsplash.com/photo-1546869134-cf00bc9f79fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29mZmVlJTIwYmVhY2h8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60");
+     /* The image used
+  background-image: url("img_girl.jpg"); */
+
+  /* Full height */
+  background-position: center;
+  background-size : cover;
+  background-repeat : no-repeat;
+  width : 100vw;
+  height: 100vh;
+}
+.label{
+    font-family:cursive;
+}
+.place{
+ padding-top: 10rem;
+}
+.submit{
+background-color: skyblue;
+}
+
+.cancel{
+background-color: burlywood;
+}
+.login{
+background-color: burlywood;
+}
+/* .container{
+    padding: 2rem;
+}
+.cell{
+    padding: 1rem;
+}
+
+ .grid{
+
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr,1fr;
+    grid-gap: 1rem;
+  
+} */
