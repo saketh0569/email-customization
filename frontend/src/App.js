@@ -1,19 +1,32 @@
+import React, {useState} from 'react'
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import AddOrg from './components/AddOrg';
-import Appbar from './components/Appbar';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Form from './components/Form';
+import Preview from './components/Preview';
 
 function App() {
-        return (
-                <Router>
-                        <Appbar />
-                        <div className="App">
-                                <Routes>
-                                        <Route path="/addorg" element={<AddOrg />} />
-                                </Routes>
-                        </div>
-                </Router>
-        );
+
+
+  const [name, setName] = useState('')
+  const [url, setUrl] = useState('')
+
+
+  return (
+    <div className="App">
+      
+      <Router>
+     
+           
+              <Routes>
+     
+              <Route exact path = "/form" element= {<Form name={name} setName = {setName} url={url} setUrl={setUrl}/>}></Route>
+              <Route  path = "/preview" element= {<Preview name={name} setName = {setName} url={url} setUrl={setUrl}/>}></Route>
+            
+              </Routes>
+      </Router>
+
+    </div>
+  );
 }
 
 export default App;
