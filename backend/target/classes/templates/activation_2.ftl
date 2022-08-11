@@ -118,7 +118,7 @@
 														<tr>
 															<td style="width:600px;">
 																<img alt="" height="auto"
-																	src="${org.url}"
+																	src=""
 																	style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
 																	width="600" />
 															</td>
@@ -155,7 +155,7 @@
 												style="font-size:0px;padding:10px 25px;padding-top:50px;padding-right:25px;padding-bottom:30px;padding-left:25px;word-break:break-word;">
 												<div
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:45px;font-weight:bold;line-height:1;text-align:left;color:#ffffff;">
-													Welcome back !!
+													Welcome aboard
 												</div>
 											</td>
 										</tr>
@@ -190,7 +190,7 @@
 													<span style="color:#FEEB35">
 													Dear
                                                         ${(msg.first)!"{msg.first}"} ${(msg.last)!"{msg.last}"},
-													Welcome to ${org.name}
+													Thanks for reaching us.
 												</div>
 											</td>
 										</tr>
@@ -209,7 +209,7 @@
 													feel free to
 													reach out to us
 													at
-													${org.name}@gmail.com
+													company@gmail.com
 													You can login to
 													your account
 													with your
@@ -245,7 +245,7 @@
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#ffffff;">
 													Thanks, <br />
 													The
-													${org.name}
+													Technical Support
 													Team</div>
 											</td>
 										</tr>

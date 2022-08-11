@@ -68,8 +68,9 @@ public class FileService {
     }
 
     public String updateFileFromID(MultipartFile upload, String id) throws IOException {
+        String str = getTypeFromID(id);
         template.delete(new Query(Criteria.where("_id").is(id)));
-        return this.addFile(upload, getTypeFromID(id));
+        return this.addFile(upload, str);
     }
 
     public void deleteFileFromID(String id) throws  IOException {

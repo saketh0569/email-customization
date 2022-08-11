@@ -69,9 +69,12 @@ public class EmailSenderService {
 //        System.out.println(msg.getCompany());
 
         FileDoc filet = fileService.downloadFileFromName(msg.getCompany()+"_"+msg.getType());
+//        System.out.println("here "+filet);
+        if (filet.getFile() == null)
+            filet = fileService.downloadFileFromName(msg.getType()+"_2.ftl");
+
         String str = new String(filet.getFile()); // this is ftl file content
 //        System.out.println("str is "+str);
-//        System.out.println("here "+filet.getFilename());
 //        System.out.println(String.valueOf(filet.getFile()));
 
         File dest = new File("src/main/resources/templates/temp.ftl");

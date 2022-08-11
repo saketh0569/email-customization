@@ -155,7 +155,7 @@
 												style="font-size:0px;padding:10px 25px;padding-top:50px;padding-right:25px;padding-bottom:30px;padding-left:25px;word-break:break-word;">
 												<div
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:45px;font-weight:bold;line-height:1;text-align:left;color:#ffffff;">
-													Welcome aboard
+													Welcome back !!
 												</div>
 											</td>
 										</tr>

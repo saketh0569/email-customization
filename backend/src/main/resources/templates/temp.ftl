@@ -118,7 +118,7 @@
 														<tr>
 															<td style="width:600px;">
 																<img alt="" height="auto"
-																	src="https://www.google.com/logos/doodles/2015/googles-new-logo-5078286822539264.3-hp2x.gif"
+																	src="https://cdn.mos.cms.futurecdn.net/h3eoVdTaoRQ6syPSURsB7S-480-80.jpg"
 																	style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
 																	width="600" />
 															</td>
@@ -190,7 +190,7 @@
 													<span style="color:#FEEB35">
 													Dear
                                                         ${msg.first} ${msg.last},
-													Welcome to mks
+													Welcome to Freshworks
 												</div>
 											</td>
 										</tr>
@@ -199,22 +199,22 @@
 												style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
 												<div
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#ffffff;">
-													We&apos;re
-													really excited
-													you&apos;ve
-													decided to give
-													us a try. In
+													Here is the 
+                                                                                                        simple way to 
+                                                                                                        reset your password 
+                                                                                                        of your choice. 
+                                                                                                        In
 													case you have
 													any questions,
 													feel free to
 													reach out to us
 													at
-													mks@gmail.com
+													Freshworks@gmail.com
 													You can login to
 													your account
 													with your
 													username
-                                                    ${msg.username}. And can use the below link to activate your account.
+                                                    ${msg.username}. And can use the below link to change the password for your account.
 												</div>
 											</td>
 										</tr>
@@ -230,7 +230,7 @@
 																valign="middle">
 																<p
 																	style="display:inline-block;background:#ffffff;color:#1AA0E1;font-family:open Sans Helvetica, Arial, sans-serif;font-size:22px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;">
-																	Login
+																	Change password
 																</p>
 															</td>
 														</tr>
@@ -245,7 +245,7 @@
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#ffffff;">
 													Thanks, <br />
 													The
-													mks
+													Freshworks
 													Team</div>
 											</td>
 										</tr>

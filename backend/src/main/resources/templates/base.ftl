@@ -199,11 +199,11 @@
 												style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
 												<div
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#ffffff;">
-													We&apos;re
-													really excited
-													you&apos;ve
-													decided to give
-													us a try. In
+													Here is the 
+                                                                                                        simple way to 
+                                                                                                        reset your password 
+                                                                                                        of your choice. 
+                                                                                                        In
 													case you have
 													any questions,
 													feel free to
@@ -214,7 +214,7 @@
 													your account
 													with your
 													username
-                                                    ${(msg.username)!"{msg.username}"}. And can use the below link to activate your account.
+                                                    ${(msg.username)!"{msg.username}"}. And can use the below link to change the password for your account.
 												</div>
 											</td>
 										</tr>
@@ -230,7 +230,7 @@
 																valign="middle">
 																<p
 																	style="display:inline-block;background:#ffffff;color:#1AA0E1;font-family:open Sans Helvetica, Arial, sans-serif;font-size:22px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;">
-																	Login
+																	Change password
 																</p>
 															</td>
 														</tr>
