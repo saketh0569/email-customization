@@ -20,6 +20,7 @@ import java.io.StringWriter;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class OrgService {
@@ -36,8 +37,24 @@ public class OrgService {
         StringWriter stringWriter = new StringWriter();
         Map<String, Object> model = new HashMap<>();
         model.put("org", org);
-        configuration.getTemplate(org.getType()+".ftl").process(model, stringWriter);
-        String str = stringWriter.getBuffer().toString();
+
+        // get the base template and store it temporarily
+        String st = fileService.getContentFromBaseTemplate(org.getType());
+//        System.out.println("here "+st);
+        File dest = new File("src/main/resources/templates/base.ftl");
+        FileWriter wr = new FileWriter(dest);
+        wr.write(st);
+        wr.flush();
+        wr.close();
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+//        configuration.getTemplate(org.getType()+".ftl").process(model, stringWriter);
+        configuration.getTemplate("base.ftl").process(model, stringWriter);
+        String str = stringWriter.getBuffer().toString(); // contains the base template content as string
         String res = "";
         for (int i=0; i<str.length(); i++) {
             if (i+4<str.length() && str.substring(i, i+4).equals("{msg")) {

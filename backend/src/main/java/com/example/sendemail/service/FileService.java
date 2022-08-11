@@ -40,6 +40,7 @@ public class FileService {
         if (gridFSFile != null && gridFSFile.getMetadata() != null) {
             filet.setFilename( gridFSFile.getFilename() );
             filet.setFiletype( gridFSFile.getMetadata().get("_contentType").toString() );
+            filet.setTemplatetype(gridFSFile.getMetadata().get("templatetype").toString());
 //            filet.setFilesize( gridFSFile.getMetadata().get("fileSize").toString() );
             filet.setFile(IOUtils.toByteArray(operations.getResource(gridFSFile).getInputStream()));
         }
@@ -58,6 +59,7 @@ public class FileService {
         if (gridFSFile != null && gridFSFile.getMetadata() != null) {
             filet.setFilename( gridFSFile.getFilename() );
             filet.setFiletype( gridFSFile.getMetadata().get("_contentType").toString() );
+            filet.setTemplatetype(gridFSFile.getMetadata().get("templatetype").toString());
 //            filet.setFilesize( gridFSFile.getMetadata().get("fileSize").toString() );
             filet.setFile(IOUtils.toByteArray(operations.getResource(gridFSFile).getInputStream()));
         }
@@ -72,5 +74,11 @@ public class FileService {
 
     public void deleteFileFromID(String id) throws  IOException {
         template.delete(new Query(Criteria.where("_id").is(id)));
+    }
+
+    public String getContentFromBaseTemplate(String str) throws IOException {
+        GridFSFile gridFSFile = template.findOne(new Query(Criteria.where("filename").is(str+".ftl")));
+        byte[] sa = IOUtils.toByteArray(operations.getResource(gridFSFile).getInputStream());
+        return new String(sa);
     }
 }
