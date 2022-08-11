@@ -189,8 +189,8 @@
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:22px;line-height:1;text-align:left;color:#ffffff;">
 													<span style="color:#FEEB35">
 													Dear
-                                                        ${msg.first} ${msg.last}
-													Welcome to google
+                                                        ${msg.first} ${msg.last},
+													Welcome to mks
 												</div>
 											</td>
 										</tr>
@@ -209,7 +209,7 @@
 													feel free to
 													reach out to us
 													at
-													company@gmail.com
+													mks@gmail.com
 													You can login to
 													your account
 													with your
@@ -245,7 +245,7 @@
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#ffffff;">
 													Thanks, <br />
 													The
-													google
+													mks
 													Team</div>
 											</td>
 										</tr>

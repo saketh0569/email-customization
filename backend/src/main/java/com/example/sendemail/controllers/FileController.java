@@ -22,7 +22,7 @@ public class FileController {
 
     @PostMapping("/upload")
     public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) throws IOException {
-        return new ResponseEntity<>(fileService.addFile(file), HttpStatus.OK);
+        return new ResponseEntity<>(fileService.addFile(file, "base"), HttpStatus.OK);
     }
 
     @GetMapping("/download")
@@ -36,8 +36,8 @@ public class FileController {
     }
 
     @GetMapping("/download2")
-    public ResponseEntity<ByteArrayResource> downloadFromFileName(@RequestParam("str") String str) throws IOException {
-        FileDoc loadFile = fileService.downloadFileFromName(str);
+    public ResponseEntity<ByteArrayResource> downloadFromFileName(@RequestParam("str") String str, @RequestParam("type") String type) throws IOException {
+        FileDoc loadFile = fileService.downloadFileFromName(str+"_"+type);
 
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(loadFile.getFiletype()))
@@ -46,10 +46,10 @@ public class FileController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<?> updateFromFileID(@RequestParam("file") MultipartFile file) throws IOException {
-        System.out.println("here 1");
+    public ResponseEntity<?> updateFromFileID(@RequestParam("file") MultipartFile file, @RequestParam("id") String id) throws IOException {
+//        System.out.println("here 1");
 //        FileDoc loadFile = fileService.updateFileFromID(id);
 //        String id = "62e8097bef38bc5c4f1ebce7";
-        return new ResponseEntity<>(fileService.updateFileFromID(file), HttpStatus.OK);
+        return new ResponseEntity<>(fileService.updateFileFromID(file, id), HttpStatus.OK);
     }
 }

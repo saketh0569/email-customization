@@ -3,10 +3,19 @@ package com.example.sendemail.model;
 public class FileDoc {
     private String filename;
     private String filetype;
+    private String templatetype;
 //    private String filesize;
     private byte[] file;
 
     public FileDoc() {
+    }
+
+    public String getTemplatetype() {
+        return templatetype;
+    }
+
+    public void setTemplatetype(String templatetype) {
+        this.templatetype = templatetype;
     }
 
     public String getFilename() {

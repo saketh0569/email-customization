@@ -68,7 +68,7 @@ public class EmailSenderService {
         model.put("msg", msg);
 //        System.out.println(msg.getCompany());
 
-        FileDoc filet = fileService.downloadFileFromName(msg.getCompany());
+        FileDoc filet = fileService.downloadFileFromName(msg.getCompany()+"_"+msg.getType());
         String str = new String(filet.getFile()); // this is ftl file content
 //        System.out.println("str is "+str);
 //        System.out.println("here "+filet.getFilename());
@@ -87,7 +87,7 @@ public class EmailSenderService {
         }
         configuration.getTemplate("temp.ftl").process(model, stringWriter);
 //        dest.delete();
-        System.out.println("here");
+//        System.out.println("here");
         String ans = stringWriter.getBuffer().toString();
 //        dest.delete();
         return ans;

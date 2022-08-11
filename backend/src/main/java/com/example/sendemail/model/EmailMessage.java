@@ -8,6 +8,7 @@ public class EmailMessage {
     private String company;
     private String last;
     private String username;
+    private String type;
 
     public EmailMessage() {
     }
@@ -71,5 +72,13 @@ public class EmailMessage {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

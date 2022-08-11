@@ -189,7 +189,7 @@
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:22px;line-height:1;text-align:left;color:#ffffff;">
 													<span style="color:#FEEB35">
 													Dear
-                                                        ${(msg.first)!"{msg.first}"} ${(msg.last)!"{msg.last}"}
+                                                        ${(msg.first)!"{msg.first}"} ${(msg.last)!"{msg.last}"},
 													Welcome to ${org.name}
 												</div>
 											</td>
@@ -209,7 +209,7 @@
 													feel free to
 													reach out to us
 													at
-													company@gmail.com
+													${org.name}@gmail.com
 													You can login to
 													your account
 													with your

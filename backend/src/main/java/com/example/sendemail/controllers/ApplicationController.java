@@ -5,6 +5,7 @@ import com.example.sendemail.model.Org;
 import com.example.sendemail.service.OrgService;
 import freemarker.template.TemplateException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,5 +38,11 @@ public class ApplicationController {
     @RequestMapping(value = "/org/update", method = RequestMethod.PUT)
     public String updateTemplate(@RequestBody Org org) throws TemplateException, IOException {
         return orgService.updateTemplate(org);
+    }
+
+    @RequestMapping(value = "/org/delete", method = RequestMethod.DELETE)
+    public ResponseEntity deleteTemplate(@RequestParam("id") String id) throws IOException {
+        orgService.deleteTemplate(id);
+        return ResponseEntity.ok("Success");
     }
 }

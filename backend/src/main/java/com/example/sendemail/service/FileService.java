@@ -22,9 +22,14 @@ public class FileService {
     @Autowired
     private GridFsOperations operations;
 
-    public String addFile(MultipartFile upload) throws IOException {
+    public String addFile(MultipartFile upload, String str) throws IOException {
         DBObject metadata = new BasicDBObject();
         metadata.put("filesize", upload.getSize());
+        metadata.put("templatetype", str);
+        GridFSFile gridFSFile = template.findOne(new Query((Criteria.where("filename").is(upload.getOriginalFilename()))));
+        if (gridFSFile != null) {
+            return "already exists";
+        }
         Object fileID = template.store(upload.getInputStream(), upload.getOriginalFilename(), upload.getContentType(), metadata);
         return fileID.toString();
     }
@@ -41,6 +46,12 @@ public class FileService {
         return filet;
     }
 
+    public String getTypeFromID(String id) throws IOException {
+        GridFSFile gridFSFile = template.findOne((new Query(Criteria.where("_id").is(id))));
+//        return gridFSFile.getMetadata().filesize
+        return gridFSFile.getMetadata().get("templatetype").toString();
+    }
+
     public FileDoc downloadFileFromName(String str) throws IOException {
         GridFSFile gridFSFile = template.findOne(new Query(Criteria.where("filename").is(str)));
         FileDoc filet = new FileDoc();
@@ -54,8 +65,12 @@ public class FileService {
         return filet;
     }
 
-    public String updateFileFromID(MultipartFile upload) throws IOException {
-        template.delete(new Query(Criteria.where("filename").is(upload.getOriginalFilename())));
-        return this.addFile(upload);
+    public String updateFileFromID(MultipartFile upload, String id) throws IOException {
+        template.delete(new Query(Criteria.where("_id").is(id)));
+        return this.addFile(upload, getTypeFromID(id));
+    }
+
+    public void deleteFileFromID(String id) throws  IOException {
+        template.delete(new Query(Criteria.where("_id").is(id)));
     }
 }
