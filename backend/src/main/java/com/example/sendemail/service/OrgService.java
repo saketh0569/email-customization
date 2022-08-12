@@ -9,6 +9,7 @@ import freemarker.template.Configuration;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -87,5 +88,35 @@ public class OrgService {
 
     public void deleteTemplate(String id) throws IOException {
         fileService.deleteFileFromID(id);
+    }
+
+    public String preview(Org org) throws IOException, TemplateException {
+        StringWriter stringWriter = new StringWriter();
+        Map<String, Object> model = new HashMap<>();
+        model.put("org", org);
+
+        String st = fileService.getContentFromBaseTemplate(org.getType());
+        File dest = new File("src/main/resources/templates/preview.ftl");
+        FileWriter wr = new FileWriter(dest);
+        wr.write(st);
+        wr.flush();
+        wr.close();
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        configuration.getTemplate("preview.ftl").process(model, stringWriter);
+        String str = stringWriter.getBuffer().toString(); // contains the base template content as string
+        String res = "";
+        for (int i=0; i<str.length(); i++) {
+            if (i+4<str.length() && str.substring(i, i+4).equals("{msg")) {
+                res = res + '$';
+            }
+            res = res+str.charAt(i);
+        }
+
+        return res;
     }
 }
