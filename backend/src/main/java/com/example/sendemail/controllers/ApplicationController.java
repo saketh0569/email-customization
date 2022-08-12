@@ -45,4 +45,9 @@ public class ApplicationController {
         orgService.deleteTemplate(id);
         return ResponseEntity.ok("Success");
     }
+
+    @RequestMapping(value = "/org/preview", method = RequestMethod.GET)
+    public String previewTemplate(@RequestBody Org org) throws TemplateException, IOException {
+        return orgService.preview(org);
+    }
 }
