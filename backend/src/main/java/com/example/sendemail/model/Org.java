@@ -5,6 +5,7 @@ public class Org {
     private String url;
     private String type;
     private String id;
+    private Boolean flag;
 
     public String getId() {
         return id;
@@ -12,6 +13,14 @@ public class Org {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Boolean getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Boolean flag) {
+        this.flag = flag;
     }
 
     public String getType() {

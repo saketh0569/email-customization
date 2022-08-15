@@ -4,6 +4,7 @@ public class FileDoc {
     private String filename;
     private String filetype;
     private String templatetype;
+    private Boolean flag;
 //    private String filesize;
     private byte[] file;
 
@@ -24,6 +25,14 @@ public class FileDoc {
 
     public void setFilename(String filename) {
         this.filename = filename;
+    }
+
+    public Boolean getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Boolean flag) {
+        this.flag = flag;
     }
 
     public String getFiletype() {

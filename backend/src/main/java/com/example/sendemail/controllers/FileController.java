@@ -22,7 +22,7 @@ public class FileController {
 
     @PostMapping("/upload")
     public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) throws IOException {
-        return new ResponseEntity<>(fileService.addFile(file, "base"), HttpStatus.OK);
+        return new ResponseEntity<>(fileService.addFile(file, "base", true), HttpStatus.OK);
     }
 
     @GetMapping("/download")
@@ -50,6 +50,6 @@ public class FileController {
 //        System.out.println("here 1");
 //        FileDoc loadFile = fileService.updateFileFromID(id);
 //        String id = "62e8097bef38bc5c4f1ebce7";
-        return new ResponseEntity<>(fileService.updateFileFromID(file, id), HttpStatus.OK);
+        return new ResponseEntity<>(fileService.updateFileFromID(file, id, true), HttpStatus.OK);
     }
 }

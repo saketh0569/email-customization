@@ -5,6 +5,7 @@ import com.example.sendemail.model.Org;
 import com.example.sendemail.service.OrgService;
 import freemarker.template.TemplateException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,8 +32,11 @@ public class ApplicationController {
     }
 
     @RequestMapping(value = "/org/add", method = RequestMethod.POST)
-    public String addOrgTemplate(@RequestBody Org org) throws TemplateException, IOException {
-        return orgService.addTemplate(org);
+    public ResponseEntity<String> addOrgTemplate(@RequestBody Org org) throws TemplateException, IOException {
+        String s = orgService.addTemplate(org);
+        if (s == "already exists")
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(s);
+        return ResponseEntity.ok(s);
     }
 
     @RequestMapping(value = "/org/update", method = RequestMethod.PUT)

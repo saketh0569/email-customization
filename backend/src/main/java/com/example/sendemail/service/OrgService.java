@@ -72,7 +72,7 @@ public class OrgService {
 
         MultipartFile multi = new MockMultipartFile("file", org.getName()+"_"+org.getType(), "text/plain", IOUtils.toByteArray(res));
 //        MultipartFile multi = new MockMultipartFile(org.getType(), org.getName()+"_"+org.getType(), "text/plain", IOUtils.toByteArray(res));
-        return fileService.addFile(multi, org.getType());
+        return fileService.addFile(multi, org.getType(), org.getFlag());
     }
 
     public String getTypeFromID(String id) throws IOException {
@@ -109,14 +109,20 @@ public class OrgService {
 
         configuration.getTemplate("preview.ftl").process(model, stringWriter);
         String str = stringWriter.getBuffer().toString(); // contains the base template content as string
-        String res = "";
-        for (int i=0; i<str.length(); i++) {
-            if (i+4<str.length() && str.substring(i, i+4).equals("{msg")) {
-                res = res + '$';
-            }
-            res = res+str.charAt(i);
-        }
-
-        return res;
+//        String res = "";
+//        boolean flag = false;
+//        for (int i=0; i<str.length(); i++) {
+//            if (i+4<=str.length() && str.charAt(i)=='{' && str.substring(i, i+4).equals("{msg")) {
+//                flag = true;
+//                res = res+'<';
+//            }
+//            else if (str.charAt(i)=='}' && flag) {
+//                flag = false;
+//                res = res+'>';
+//            }
+//            else
+//                res = res+str.charAt(i);
+//        }
+        return str;
     }
 }
