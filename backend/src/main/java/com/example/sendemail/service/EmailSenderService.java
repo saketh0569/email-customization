@@ -70,7 +70,7 @@ public class EmailSenderService {
 
         FileDoc filet = fileService.downloadFileFromName(msg.getCompany()+"_"+msg.getType());
 //        System.out.println("here "+filet);
-        if (filet.getFile() == null)
+        if (filet.getFile()==null || !filet.getFlag())
             filet = fileService.downloadFileFromName(msg.getType()+"_2.ftl");
 
         String str = new String(filet.getFile()); // this is ftl file content

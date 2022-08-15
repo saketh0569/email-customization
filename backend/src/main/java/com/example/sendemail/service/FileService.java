@@ -22,10 +22,11 @@ public class FileService {
     @Autowired
     private GridFsOperations operations;
 
-    public String addFile(MultipartFile upload, String str) throws IOException {
+    public String addFile(MultipartFile upload, String str, Boolean flag) throws IOException {
         DBObject metadata = new BasicDBObject();
         metadata.put("filesize", upload.getSize());
         metadata.put("templatetype", str);
+        metadata.put("flag", flag);
         GridFSFile gridFSFile = template.findOne(new Query((Criteria.where("filename").is(upload.getOriginalFilename()))));
         if (gridFSFile != null) {
             return "already exists";
@@ -41,6 +42,7 @@ public class FileService {
             filet.setFilename( gridFSFile.getFilename() );
             filet.setFiletype( gridFSFile.getMetadata().get("_contentType").toString() );
             filet.setTemplatetype(gridFSFile.getMetadata().get("templatetype").toString());
+            filet.setFlag((Boolean) gridFSFile.getMetadata().get("flag"));
 //            filet.setFilesize( gridFSFile.getMetadata().get("fileSize").toString() );
             filet.setFile(IOUtils.toByteArray(operations.getResource(gridFSFile).getInputStream()));
         }
@@ -60,6 +62,7 @@ public class FileService {
             filet.setFilename( gridFSFile.getFilename() );
             filet.setFiletype( gridFSFile.getMetadata().get("_contentType").toString() );
             filet.setTemplatetype(gridFSFile.getMetadata().get("templatetype").toString());
+            filet.setFlag((Boolean) gridFSFile.getMetadata().get("flag"));
 //            filet.setFilesize( gridFSFile.getMetadata().get("fileSize").toString() );
             filet.setFile(IOUtils.toByteArray(operations.getResource(gridFSFile).getInputStream()));
         }
@@ -67,10 +70,10 @@ public class FileService {
         return filet;
     }
 
-    public String updateFileFromID(MultipartFile upload, String id) throws IOException {
+    public String updateFileFromID(MultipartFile upload, String id, Boolean flag) throws IOException {
         String str = getTypeFromID(id);
         template.delete(new Query(Criteria.where("_id").is(id)));
-        return this.addFile(upload, str);
+        return this.addFile(upload, str, flag);
     }
 
     public void deleteFileFromID(String id) throws  IOException {

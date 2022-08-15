@@ -118,7 +118,7 @@
 														<tr>
 															<td style="width:600px;">
 																<img alt="" height="auto"
-																	src="https://cdn.mos.cms.futurecdn.net/h3eoVdTaoRQ6syPSURsB7S-480-80.jpg"
+																	src="https://www.bwconfidential.com/wp-content/uploads/2021/10/meta-logo-october-2021-614x335.jpg"
 																	style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
 																	width="600" />
 															</td>
@@ -190,7 +190,7 @@
 													<span style="color:#FEEB35">
 													Dear
                                                         ${msg.first} ${msg.last},
-													Welcome to Freshworks
+													Welcome to Meta
 												</div>
 											</td>
 										</tr>
@@ -209,7 +209,7 @@
 													feel free to
 													reach out to us
 													at
-													Freshworks@gmail.com
+													Meta@gmail.com
 													You can login to
 													your account
 													with your
@@ -245,7 +245,7 @@
 													style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:15px;line-height:1;text-align:left;color:#ffffff;">
 													Thanks, <br />
 													The
-													Freshworks
+													Meta
 													Team</div>
 											</td>
 										</tr>
